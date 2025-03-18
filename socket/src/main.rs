@@ -17,7 +17,7 @@ fn main() -> std::io::Result<()> {
                 println!("Connection established!");
             }
             Err(e) => {
-                // eprintln! permet d'écrire sur la sortie d'erreura
+                // eprintln! permet d'écrire sur la sortie d'erreur
                 eprintln!("Error: {}", e);
             }
         }
@@ -31,7 +31,6 @@ fn handle_client(mut stream: TcpStream) {
     match stream.read(&mut buffer) {
         Ok(_) => {
             let request = String::from_utf8_lossy(&buffer);
-            // affiche le message reçu dans le buffer
             println!("Received a request: {}", request);
 
             // Ceci ne marche pas 
